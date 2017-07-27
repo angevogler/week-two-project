@@ -35,13 +35,29 @@ function question2 () {
 
 // 3: Which item has a "GBP" currency code? Display it's name and price.
 function question3 () {
+  let currency_GBP = [];
   // Answer:
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].currency_code === "GBP") {
+      currency_GBP.push(data[i].title, data[i].price);
+    }
+  }
+  return currency_GBP;
 }
 
 
 // 4: Display a list of all items who are made of wood.
 function question4 () {
+  let materials_wood = [];
   // Answer:
+  for (let i = 0; i < data.length; i++) { //loop 1 -- looking at each item in data array
+    for (let j = 0; j < data[i].materials.length; j++) {//lopp 2 -- looking at each item in materials array
+      if (data[i].materials[j] === "wood") {
+        materials_wood.push(data[i].title);
+      }
+    }
+  }
+  return materials_wood;
 }
 
 
