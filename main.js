@@ -80,5 +80,12 @@ function question5 () {
 // 6: How many items were made by their sellers?
 // Answer:
 function question6 () {
+  let seller_made = [];
   // Answer:
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].who_made === "i_did"){
+      seller_made.push(data[i].title);
+    }
+  }
+  return seller_made.length;
 }
