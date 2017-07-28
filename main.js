@@ -70,16 +70,18 @@ function question4 () {
 // 5: Which items are made of eight or more materials?
 //    Display the name, number of items and the items it is made of.
 function question5 () {
-  let materials_8 = [];
+
   // Answer:
   for (let i = 0; i < data.length; i++) {
     if (data[i].materials.length >= 8) {
-      materials_8.push(data[i].title, data[i].materials.length, data[i].materials);
+      console.log(data[i].title + " has " + data[i].materials.length + " materials:");
+      for (let j = 0; j < data[i].materials.length ; j++) {
+        console.log("- " + data[i].materials[j]);
+      }
+    }
     }
   }
-  console.log(materials_8);
-  // need an object with (name:title, materialsNum:materials.length, materialsList:materials)
-}
+
 
 
 // 6: How many items were made by their sellers?
