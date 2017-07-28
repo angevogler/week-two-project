@@ -13,23 +13,25 @@ function question1 () {
   // Answer:
   for (let i = 0; i < data.length; i++){
     sum += data[i].price;
-    avg = sum/data.length;
+    avg = (sum/data.length).toFixed(2);
   }
-  return avg;
+  console.log("The average price is "+avg);
 }
-
-
 
 // 2: Show me how to get an array of items that cost between $14.00 and $18.00 USD
 function question2 () {
   let costBetween = [];
+  let message2 = "";
   // Answer:
   for (let i = 0; i < data.length; i++){
-    if (data[i].price > 14 && data[i].price < 18) {
-      costBetween.push(data[i].price);
+    if (data[i].price >= 14 && data[i].price <= 18) {
+      costBetween.push(data[i].title);
     }
   }
-  return costBetween;
+  for (let j = 0; j < costBetween.length; j++){
+    message2 += costBetween[j] + "\n";
+  }
+  console.log(message2);
 }
 
 
@@ -42,22 +44,26 @@ function question3 () {
       currency_GBP.push(data[i].title, data[i].price);
     }
   }
-  return currency_GBP;
+  console.log(currency_GBP[0] + "costs " + currency_GBP[1] + " pounds");
 }
 
 
 // 4: Display a list of all items who are made of wood.
 function question4 () {
   let materials_wood = [];
+  let message4 = "";
   // Answer:
   for (let i = 0; i < data.length; i++) { //loop 1 -- looking at each item in data array
-    for (let j = 0; j < data[i].materials.length; j++) {//lopp 2 -- looking at each item in materials array
+    for (let j = 0; j < data[i].materials.length; j++) {//loop 2 -- looking at each item in materials array
       if (data[i].materials[j] === "wood") {
         materials_wood.push(data[i].title);
       }
     }
   }
-  return materials_wood;
+  for (k = 0; k < materials_wood.length; k++) {
+    message4 += materials_wood[k] + "\n";
+  }
+  console.log(message4);
 }
 
 
@@ -66,14 +72,13 @@ function question4 () {
 function question5 () {
   let materials_8 = [];
   // Answer:
-  for (let i = 0; i < data.length; i++) { //loop 1 -- looking at each item in data array
-    for (let j = 0; j < data[i].materials.length; j++) { //loop 2 -- looking at each item in materials array
-      if (data[i].materials[j].length >= 8) {
-        materials_8.push(data[i].title, data[i].materials.length, data[i].materials);
-      }
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].materials.length >= 8) {
+      materials_8.push(data[i].title, data[i].materials.length, data[i].materials);
     }
   }
-  return materials_8;
+  console.log(materials_8);
+  // need an object with (name:title, materialsNum:materials.length, materialsList:materials)
 }
 
 
@@ -87,5 +92,5 @@ function question6 () {
       seller_made.push(data[i].title);
     }
   }
-  return seller_made.length;
+  console.log(seller_made.length + " items were made by their sellers.");
 }
